@@ -7,8 +7,8 @@ const decrement = () => {
 }
 
 const valueEL = document.querySelector('#value');
-const onIncrementBtnEL = document.querySelector('.increment');
-const onDecrementBtnEL = document.querySelector('.decrement');
+const onIncrementBtnEL = document.querySelector('[data-action="increment"]');
+const onDecrementBtnEL = document.querySelector('[data-action="decrement"]');
 
 onIncrementBtnEL.addEventListener('click', () => {
     increment();
