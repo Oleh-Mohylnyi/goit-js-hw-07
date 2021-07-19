@@ -13,26 +13,71 @@ const images = [
   },
 ];
 
+const galleryListRef = document.querySelector('#gallery');
 
-let imgCardList = '';
-const createLiEl = (imagesParameters) => {
-    const [{url, alt}] = imagesParameters;
-    for (let image of images) {
-        let imgCard = `
+const galleryListItems = images.reduce(callback, '');
+
+function callback(acc, { url, alt}) {
+return acc + `
         <li >
-        <img src=${image.url} alt=${image.alt} width = "100%">
+        <img src=${url} alt=${alt} width="300">
         </li>
-        `;
-        imgCardList = imgCardList + imgCard;
-    }
+        `
 };
 
-createLiEl(images);        
-const galleryEl = document.querySelector('#gallery');
-galleryEl.insertAdjacentHTML('afterbegin', imgCardList);
+galleryListRef.insertAdjacentHTML('afterbegin', galleryListItems);
+
+galleryListRef.style.listStyle = "none";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let imgCardList = '';
+// const createLiEl = (imagesParameters) => {
+//     const [{url, alt}] = imagesParameters;
+//     for (let image of images) {
+//         let imgCard = `
+//         <li >
+//         <img src=${image.url} alt=${image.alt} width = "100%">
+//         </li>
+//         `;
+//         imgCardList = imgCardList + imgCard;
+//     }
+// };
+
+// createLiEl(images);        
+// const galleryEl = document.querySelector('#gallery');
+// galleryEl.insertAdjacentHTML('afterbegin', imgCardList);
         
-        galleryEl.style.display = "grid";
-        galleryEl.style.gridTemplateColumns = "repeat(3, 1fr)";
-        galleryEl.style.gap = "30px";
-        galleryEl.style.listStyle = "none";
+//         galleryEl.style.display = "grid";
+//         galleryEl.style.gridTemplateColumns = "repeat(3, 1fr)";
+//         galleryEl.style.gap = "30px";
+//         galleryEl.style.listStyle = "none";
         
